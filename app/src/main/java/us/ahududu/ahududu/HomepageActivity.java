@@ -3,6 +3,7 @@ package us.ahududu.ahududu;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class HomepageActivity extends AppCompatActivity {
 
@@ -19,6 +21,7 @@ public class HomepageActivity extends AppCompatActivity {
     ViewPager mViewPager;
     DesignTools designTools;
     Activity mActivity;
+    EditText edtSearch;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -48,6 +51,16 @@ public class HomepageActivity extends AppCompatActivity {
         setupViewPager(mViewPager);
 
         designTools = new DesignTools();
+
+        edtSearch = findViewById(R.id.edtSearchEvent);
+        edtSearch.setFocusable(false);
+        edtSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), SearchActivity.class));
+                overridePendingTransition(0,0);
+            }
+        });
     }
 
     @SuppressLint("ResourceAsColor")
