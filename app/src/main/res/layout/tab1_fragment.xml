@@ -3,7 +3,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,16 +16,18 @@
             android:id="@+id/cvLastAdded"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="20dp"
             android:layout_below="@+id/cvCategories"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:elevation="30dp"
             app:cardCornerRadius="10dp"
-            app:cardElevation="10dp"
-            android:elevation="30dp">
+            app:cardElevation="10dp">
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/txtLastAddedHeader"
                     android:layout_width="wrap_content"
@@ -34,205 +37,208 @@
                     android:text="@string/mainPageLastAdded"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-                <ListView
+
+                <us.ahududu.ahududu.NonScrollListView
                     android:id="@+id/lsLastAdded"
-                    android:layout_below="@id/txtLastAddedHeader"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtLastAddedHeader" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cvCategories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/cvSponsored"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="20dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
-        android:elevation="30dp">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/txtCategories"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="@string/strCategories"
-            android:textSize="16sp" />
-
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/txtCategories"
-            android:scrollbars="none">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp">
-
-                <ImageView
-                    android:id="@+id/ctgImage1"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:scaleType="fitXY"
-                    android:padding="5dp"
-                    android:elevation="10dp"
-                    android:src="@drawable/ctgnature" />
-
-                <ImageView
-                    android:id="@+id/ctgImage2"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:scaleType="fitXY"
-                    android:layout_toEndOf="@+id/ctgImage1"
-                    android:padding="5dp"
-                    android:src="@drawable/ctgsport" />
-
-                <ImageView
-                    android:id="@+id/ctgImage3"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage2"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgscience" />
-
-                <ImageView
-                    android:id="@+id/ctgImage4"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage3"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgcareer" />
-
-                <ImageView
-                    android:id="@+id/ctgImage5"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage4"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgesport" />
-
-                <ImageView
-                    android:id="@+id/ctgImage6"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage5"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgfamily" />
-
-                <ImageView
-                    android:id="@+id/ctgImage7"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage6"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgmusic" />
-
-                <ImageView
-                    android:id="@+id/ctgImage8"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage7"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgfest" />
-
-                <ImageView
-                    android:id="@+id/ctgImage9"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage8"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgcultureart" />
-
-                <ImageView
-                    android:id="@+id/ctgImage10"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage9"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctguniversity" />
-
-                <ImageView
-                    android:id="@+id/ctgImage11"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage10"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgcourse" />
-
-                <ImageView
-                    android:id="@+id/ctgImage12"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage11"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgcars" />
-
-                <ImageView
-                    android:id="@+id/ctgImage13"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage12"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgpet" />
-
-                <ImageView
-                    android:id="@+id/ctgImage14"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage13"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgfood" />
-
-                <ImageView
-                    android:id="@+id/ctgImage15"
-                    android:layout_width="100dp"
-                    android:layout_height="120dp"
-                    android:layout_toEndOf="@+id/ctgImage14"
-                    android:padding="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ctgtravel" />
-            </RelativeLayout>
-
-        </HorizontalScrollView>
-    </RelativeLayout>
-    </android.support.v7.widget.CardView>
-
         <android.support.v7.widget.CardView
-            android:id="@+id/cvSponsored"
-            android:layout_below="@id/vwDudulaHolder"
-            android:layout_marginTop="15dp"
+            android:id="@+id/cvCategories"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cvSponsored"
+            android:layout_marginBottom="20dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="15dp"
+            android:elevation="30dp"
             app:cardCornerRadius="10dp"
-            app:cardElevation="10dp"
-            android:elevation="30dp">
+            app:cardElevation="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txtCategories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/strCategories"
+                    android:textSize="16sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/txtCategories"
+                    android:scrollbars="none">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp">
+
+                        <ImageView
+                            android:id="@+id/ctgImage1"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:elevation="10dp"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgnature" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage2"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage1"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgsport" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage3"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage2"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgscience" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage4"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage3"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgcareer" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage5"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage4"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgesport" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage6"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage5"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgfamily" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage7"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage6"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgmusic" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage8"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage7"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgfest" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage9"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage8"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgcultureart" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage10"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage9"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctguniversity" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage11"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage10"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgcourse" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage12"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage11"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgcars" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage13"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage12"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgpet" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage14"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage13"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgfood" />
+
+                        <ImageView
+                            android:id="@+id/ctgImage15"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:layout_toEndOf="@+id/ctgImage14"
+                            android:padding="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ctgtravel" />
+                    </RelativeLayout>
+
+                </HorizontalScrollView>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvSponsored"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_below="@id/vwDudulaHolder"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:elevation="30dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/txtSponsoredEvents"
                     android:layout_width="wrap_content"
