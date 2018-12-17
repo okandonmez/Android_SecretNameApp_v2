@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/androidlogo"
         android:label="@string/app_name"
         android:largeHeap="true"
