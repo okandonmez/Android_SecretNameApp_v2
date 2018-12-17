@@ -12,6 +12,7 @@
 
     <color name="grayBackground">#f3f3f3</color>
     <color name="ahuPrimaryColor">#d00053</color>
+    <color name="grayButton">#f5f5f5</color>
 
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFFF00</color>
