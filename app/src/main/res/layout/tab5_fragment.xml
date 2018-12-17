@@ -14,84 +14,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <View
-                android:id="@+id/vwProfileDetails"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/borders">
-
-            </View>
-
-            <View
-                android:id="@+id/vwAttended"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_below="@+id/vwWillGo"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/borders"/>
-
-            <View
-                android:id="@+id/vwWillGo"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_below="@+id/vwMyActions"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/borders" />
-            <View
-                android:id="@+id/vwMyActions"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_below="@+id/vwHobbies"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/borders" />
-            <View
-                android:id="@+id/vwHobbies"
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_below="@+id/vwProfileDetails"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/borders"/>
-
-            <TextView
-                android:id="@+id/attendedTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/vwWillGo"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="15dp"
-                android:text="@string/attendedEvents"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/attendedTitle"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/onlybottomrounded"
-                android:scaleType="fitXY"
-                android:src="@drawable/underconst1" />
-
 
             <TextView
                 android:id="@+id/willGoTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/vwMyActions"
+                android:layout_below="@+id/myActionsTitle"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="135dp"
                 android:text="@string/willGo"
                 android:textSize="18sp" />
 
@@ -111,9 +41,9 @@
                 android:id="@+id/myActionsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/vwHobbies"
+                android:layout_below="@+id/hobbyTitle"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="55dp"
                 android:text="@string/eventsProfile"
                 android:textSize="18sp" />
 
@@ -134,9 +64,9 @@
                 android:id="@+id/hobbyTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/vwProfileDetails"
+                android:layout_below="@+id/profileIcons"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="55dp"
                 android:text="@string/hobbyProfile"
                 android:textSize="18sp" />
 
