@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grayBackground"
+    tools:context=".addEvents">
+
+    <ImageView
+        android:id="@+id/imgAddEventHeader"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/addquickeventheader" />
+
+    <RelativeLayout
+        android:id="@+id/rlAddEventHeader"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/ahududuThemeColor">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/iconback" />
+
+        <ImageView
+            android:id="@+id/addEventLogo"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/addEventTitle"
+            android:src="@mipmap/androidlogo" />
+
+        <TextView
+            android:id="@+id/addEventTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Ahududu"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/imgAddEventHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="860dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/addquickeventbackground">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/crcEventName"
+                    android:layout_width="155dp"
+                    android:layout_height="155dp"
+                    android:layout_marginStart="98dp"
+                    android:layout_marginTop="30dp" />
+
+                <EditText
+                    android:id="@+id/edtCtg"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="346dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Kategori Seçiniz.."
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/txtCtgClickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="370dp"
+                    android:background="@android:color/transparent"
+                    android:paddingTop="5dp"
+                    android:text="Kategori Seçiniz"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edtEventName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="258dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Etkinlik Adı.."
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/edtDate"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/edtCtg"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="170dp"
+                    android:paddingStart="12dp"
+                    android:paddingTop="9dp"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btnShare"
+                    android:layout_width="350dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/edtDate"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="120dp"
+                    android:background="@android:color/transparent"
+                    android:text="" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="880dp"
+                android:background="@drawable/borders">
+
+                <TextView
+                    android:id="@+id/addEventAdTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:text="İlgini Çekebilecek Etkinlikler"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/addEventAdTitle"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/addEventAd1"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:src="@drawable/addeventad1" />
+
+                        <ImageView
+                            android:id="@+id/addEventAd2"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_toEndOf="@id/addEventAd1"
+                            android:src="@drawable/addeventad2" />
+
+                        <ImageView
+                            android:id="@+id/addEventAd3"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_toEndOf="@id/addEventAd2"
+                            android:src="@drawable/addeventad3" />
+                    </RelativeLayout>
+                </HorizontalScrollView>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

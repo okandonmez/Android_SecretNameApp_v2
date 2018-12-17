@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registerbackground"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/txtRegMotto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="109dp"
+        android:text="@string/registerHeader1"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="177dp"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:hint="@string/emailHint"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        android:textColorHint="#ffffff"
+        android:textSize="15sp" />
+
+
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edtEmail"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:hint="@string/passwordHint"
+        android:inputType="textPassword"
+        android:textColor="@android:color/white"
+        android:textColorHint="#ffffff"
+        android:textSize="15sp" />
+
+
+    <EditText
+        android:id="@+id/edtAgainPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtPassword"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:hint="@string/againPasswordHint"
+        android:inputType="textPassword"
+        android:textColor="@android:color/white"
+        android:textColorHint="#ffffff"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="153dp"
+        android:layout_height="35dp"
+        android:layout_alignEnd="@+id/edtEmail"
+        android:layout_below="@+id/edtAgainPassword"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/registerbtn" />
+
+    <CheckBox
+        android:id="@+id/chIsAccepted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edtEmail"
+        android:layout_below="@+id/edtAgainPassword"
+        android:layout_marginTop="5dp"
+        android:buttonTint="@android:color/white"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnRegBack"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/iconback" />
+
+    <ProgressBar
+        android:id="@+id/pbRegister"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/txtPolicyText"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/chIsAccepted"
+        android:text="@string/registerPolicy"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

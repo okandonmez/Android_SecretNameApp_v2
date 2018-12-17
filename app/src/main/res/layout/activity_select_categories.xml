@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/kategoriarkaplan"
+    tools:context=".SelectCategories">
+
+    <ImageView
+        android:id="@+id/imgHeader"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/headercategory" />
+
+    <TextView
+        android:id="@+id/aiMotto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="@string/aiMotto_1"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/aiMotto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aiMotto1"
+        android:layout_centerHorizontal="true"
+        android:text="@string/aiMotto_2"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <ScrollView
+        android:id="@+id/scCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aiMotto2"
+        android:layout_marginBottom="65dp"
+        android:layout_marginTop="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imgCtgNature"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgnature" />
+
+            <ImageView
+                android:id="@+id/imgCtgSport"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgsport" />
+
+            <ImageView
+                android:id="@+id/imgCtgScience"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/imgCtgSport"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgscience" />
+
+            <ImageView
+                android:id="@+id/imgCtgCareer"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/imgCtgNature"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgcareer" />
+
+            <ImageView
+                android:id="@+id/imgCtgESport"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/imgCtgSport"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgesport" />
+
+            <ImageView
+                android:id="@+id/imgCtgFamily"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/imgCtgScience"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/imgCtgESport"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgfamily" />
+
+            <ImageView
+                android:id="@+id/imgCtgMusic"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/imgCtgCareer"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgmusic" />
+
+            <ImageView
+                android:id="@+id/imgCtgFest"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/imgCtgESport"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgfest" />
+
+            <ImageView
+                android:id="@+id/imgCtgCulture"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/imgCtgFamily"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/imgCtgESport"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgcultureart" />
+
+            <ImageView
+                android:id="@+id/imgCtgUniversity"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/imgCtgMusic"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctguniversity" />
+
+            <ImageView
+                android:id="@+id/imgCtgCourse"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@id/imgCtgFest"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/imgCtgUniversity"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgcourse" />
+
+            <ImageView
+                android:id="@+id/imgCtgCars"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@id/imgCtgCulture"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/imgCtgCourse"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgcars" />
+
+            <ImageView
+                android:id="@+id/imgCtgPet"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/imgCtgUniversity"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgpet" />
+
+            <ImageView
+                android:id="@+id/imgCtgFood"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@id/imgCtgCourse"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/imgCtgPet"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgfood" />
+
+            <ImageView
+                android:id="@+id/imgCtgTravel"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_below="@id/imgCtgCars"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/imgCtgFood"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ctgtravel" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imgNextCategory"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/kaydetbtn" />
+
+    <ProgressBar
+        android:id="@+id/pbCategory"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible" />
+</RelativeLayout>

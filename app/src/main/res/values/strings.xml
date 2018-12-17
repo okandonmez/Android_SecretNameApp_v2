@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Ahududu</string>
+
+    <!-- Splash Screen -->
+    <string name="splashLogo">splashLogo</string>
+    <string name="imgHeaderLogo">imgHeaderLogo</string>
+
+    <!-- Login Screen -->
+    <string name="lgnHeader1"><b>Hoş Geldin!</b></string>
+    <string name="lgnHeader2">Devam etmek için giriş yap!</string>
+    <string name="lgnHeader3">Hesabın yok mu?</string>
+    <string name="goRegister">Hemen kaydol!</string>
+    <string name="rememberMe">Beni Hatırla</string>
+
+    <string name="imgHeaderLoginLogo">imgHeaderLogo</string>
+    <string name="imgUsernameBox">usernameBoxBackground</string>
+    <string name="imgPasswordBox">imgPasswordBox</string>
+    <string name="imgFacebookLogo">imgFacebookLogo</string>
+    <string name="imgTwitterLogo">imgTwitterLogo</string>
+    <string name="imgInstagramLogo">imgInstagramLogo</string>
+    <string name="imgLoginBtn">imgLoginBtn</string>
+
+    <string name="strUsername">Kullanıcı Adı</string>
+    <string name="strPassword">Şifre</string>
+
+
+    <!-- Register Screen -->
+    <string name="registerHeader1">Hesabını Oluştur!</string>
+
+    <string name="nameSurnameHint">Ad Soyad</string>
+    <string name="usernameRegHint">Kullanıcı Adı</string>
+    <string name="passwordHint">Şifre</string>
+    <string name="emailHint">Email</string>
+    <string name="birthDateHint">Doğum Tarihi</string>
+    <string name="againPasswordHint">Tekrar Şifre</string>
+
+    <string name="registerPolicy">Kullanıcı Sözleşmesini <b>okudum</b> ve <b>kabul ediyorum</b></string>
+    <string name="title_activity_homepage">HomepageActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- Main Page -->
+    <string name="sponsoredEventHeader"><b>Öne Çıkan Etkinlikler</b></string>
+    <string name="strCategories"><b>Kategoriler</b></string>
+
+    <!-- Category Select Page -->
+    <string name="aiMotto_1">Seni daha da memnun etmek için bir yapay zeka</string>
+    <string name="aiMotto_2">geliştirdik. Sistemin çalışması için 5 adet ilgi alanı girmelisin.</string>
+
+    <!-- Profile Screen -->
+    <string name="hobbyProfile"><b>İlgi Alanlarım</b></string>
+    <string name="eventsProfile"><b>Etkinliklerim</b></string>
+    <string name="willGo"><b>Gideceğim Etkinlikler</b></string>
+    <string name="attendedEvents"><b>Katıldığım Etkinlikler</b></string>
+
+    <!-- Main Page -->
+    <string name="mainPageLastAdded"><b>Son Eklenen Etkinlikler</b></string>
+
+
+</resources>

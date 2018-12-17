@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/grayBackground"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/vwProfileDetails"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/borders">
+
+            </View>
+
+            <View
+                android:id="@+id/vwAttended"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_below="@+id/vwWillGo"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/borders"/>
+
+            <View
+                android:id="@+id/vwWillGo"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_below="@+id/vwMyActions"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/borders" />
+            <View
+                android:id="@+id/vwMyActions"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_below="@+id/vwHobbies"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/borders" />
+            <View
+                android:id="@+id/vwHobbies"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_below="@+id/vwProfileDetails"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/borders"/>
+
+            <TextView
+                android:id="@+id/attendedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vwWillGo"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/attendedEvents"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/attendedTitle"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/onlybottomrounded"
+                android:scaleType="fitXY"
+                android:src="@drawable/underconst1" />
+
+
+            <TextView
+                android:id="@+id/willGoTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vwMyActions"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/willGo"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_below="@+id/willGoTitle"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/onlybottomrounded"
+                android:scaleType="fitXY"
+                android:src="@drawable/underconst2" />
+
+
+            <TextView
+                android:id="@+id/myActionsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vwHobbies"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/eventsProfile"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/myActionsTitle"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/onlybottomrounded"
+                android:scaleType="fitXY"
+                android:src="@drawable/underconst1" />
+
+
+
+            <TextView
+                android:id="@+id/hobbyTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vwProfileDetails"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/hobbyProfile"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtCtg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hobbyTitle"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/roundedborderedtext"
+                android:padding="3dp"
+                android:paddingEnd="7dp"
+                android:paddingStart="7dp"
+                android:text="Doğa"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtCtg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hobbyTitle"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/txtCtg1"
+                android:background="@drawable/roundedborderedtext"
+                android:padding="3dp"
+                android:paddingEnd="7dp"
+                android:paddingStart="7dp"
+                android:text="Kültür ve Sanat"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtCtg3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hobbyTitle"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/txtCtg2"
+                android:background="@drawable/roundedborderedtext"
+                android:padding="3dp"
+                android:paddingEnd="7dp"
+                android:paddingStart="7dp"
+                android:text="Teknoloji"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtCtg4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hobbyTitle"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/txtCtg3"
+                android:background="@drawable/roundedborderedtext"
+                android:padding="3dp"
+                android:paddingEnd="7dp"
+                android:paddingStart="7dp"
+                android:text="Aile ve Çocuk"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtCtg5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtCtg1"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/roundedborderedtext"
+                android:padding="3dp"
+                android:paddingEnd="7dp"
+                android:paddingStart="7dp"
+                android:text="Seyahat"
+                android:textSize="12sp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="18dp"
+                android:background="@mipmap/androidlogo" />
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_toEndOf="@id/profilePic"
+                android:text="Melek K."
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/profileMotto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profileName"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="4dp"
+                android:layout_toEndOf="@+id/profilePic"
+                android:text="Seyrek dişli kötü adam"
+                android:textSize="11sp" />
+
+            <ImageView
+                android:id="@+id/profileIcons"
+                android:layout_width="25dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/profileName"
+                android:layout_below="@+id/profileMotto"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/profileicons" />
+
+            <TextView
+                android:id="@+id/numberOfEvents"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileMotto"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/profileIcons"
+                android:text="50"
+                android:textColor="#ffca54"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileMotto"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/numberOfEvents"
+                android:text="Etkinlik"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/pointOfEvents"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/numberOfEvents"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/profileIcons"
+                android:text="5,0"
+                android:textColor="#ffca54"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/events"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/pointOfEvents"
+                android:text="Puan"
+                android:textColor="#ffca54"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/imgSetProfile"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_alignTop="@+id/pointOfEvents"
+                android:layout_toEndOf="@+id/profileMotto"
+                app:srcCompat="@drawable/setprofile" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/numberOfEvents"
+                android:layout_toEndOf="@+id/profileMotto"
+                android:text="Çıkış yap" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
