@@ -9,6 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class EventAdapter extends BaseAdapter {
@@ -43,7 +46,7 @@ public class EventAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View satirView;
-
+        String url;
         satirView = mInflater.inflate(R.layout.flowcard, null);
 
         TextView txtPrice = satirView.findViewById(R.id.txtPrice);
@@ -55,6 +58,9 @@ public class EventAdapter extends BaseAdapter {
 
         Event kisi = mKisiListesi.get(position);
 
+        url = kisi.url;
+        // new DownloadImageTask(imageView).execute("http://" + url);
+        Picasso.get().load("http://"+url).into(imageView);
         txtPrice.setText(kisi.price);
         txtCategory.setText(kisi.category);
         txtEventTitle.setText(kisi.title);

@@ -42,7 +42,10 @@
                     android:id="@+id/lsLastAdded"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/txtLastAddedHeader" />
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/txtLastAddedHeader"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="10.0sp"/>
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
