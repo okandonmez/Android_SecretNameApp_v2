@@ -119,6 +119,10 @@ public class Tab1Fragment extends Fragment {
                             lsFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                     try {
+                                        String eventId = jsonArray.getJSONObject(position).getString("id");
+                                        Intent intent = new Intent(getActivity().getApplicationContext(), EventDetails.class);
+                                        intent.putExtra("eventId", eventId);
+                                        startActivity(intent);
                                         Toast.makeText(getActivity(),jsonArray.getJSONObject(position).getString("id"),Toast.LENGTH_LONG).show();
                                     } catch (JSONException e) {
                                         e.printStackTrace();

@@ -185,5 +185,9 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean("isRemember", false);
         editor.commit();
+
+        Intent intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+        getActivity().startActivity(intent);
+        getActivity().finish();
     }
 }

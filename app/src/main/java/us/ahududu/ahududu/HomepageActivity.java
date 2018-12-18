@@ -48,6 +48,7 @@ public class HomepageActivity extends AppCompatActivity {
         btnDudula = findViewById(R.id.btnDudula);
 
         mViewPager = findViewById(R.id.container);
+        mViewPager.setOffscreenPageLimit(4);
         setupViewPager(mViewPager);
 
         designTools = new DesignTools();
