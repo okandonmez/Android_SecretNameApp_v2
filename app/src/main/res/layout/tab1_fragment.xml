@@ -269,6 +269,19 @@
                             android:scaleType="fitXY"
                             android:src="@drawable/sponsoredevents1" />
 
+                        <TextView
+                            android:id="@+id/txtSpn1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="80dp"
+                            android:maxHeight="40dp"
+                            android:maxWidth="100dp"
+                            android:text="TextView"
+                            android:textColor="#ffffff"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
                         <ImageView
                             android:id="@+id/spnImage2"
                             android:layout_width="120dp"
@@ -276,6 +289,19 @@
                             android:layout_toEndOf="@+id/spnImage1"
                             android:scaleType="fitXY"
                             android:src="@drawable/sponsoredevents4" />
+
+                        <TextView
+                            android:id="@+id/txtSpn2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="130dp"
+                            android:layout_marginTop="80dp"
+                            android:maxHeight="40dp"
+                            android:maxWidth="100dp"
+                            android:text="TextView"
+                            android:textColor="#ffffff"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/spnImage3"
@@ -285,6 +311,19 @@
                             android:scaleType="fitXY"
                             android:src="@drawable/sponsoredevents3" />
 
+                        <TextView
+                            android:id="@+id/txtSpn3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="250dp"
+                            android:layout_marginTop="80dp"
+                            android:maxHeight="40dp"
+                            android:maxWidth="100dp"
+                            android:text="TextView"
+                            android:textColor="#ffffff"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
                         <ImageView
                             android:id="@+id/spnImage4"
                             android:layout_width="120dp"
@@ -292,6 +331,19 @@
                             android:layout_toEndOf="@+id/spnImage3"
                             android:scaleType="fitXY"
                             android:src="@drawable/sponsoredevents2" />
+
+                        <TextView
+                            android:id="@+id/txtSpn4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="370dp"
+                            android:layout_marginTop="80dp"
+                            android:maxHeight="40dp"
+                            android:maxWidth="100dp"
+                            android:text="TextView"
+                            android:textColor="#ffffff"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
 
                     </RelativeLayout>
