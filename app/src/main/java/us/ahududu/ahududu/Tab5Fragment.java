@@ -1,12 +1,15 @@
 package us.ahududu.ahududu;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -175,9 +178,33 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.btnLogout:
-                falseRemember();
+                showAlertDialog();
+                //falseRemember();
                 break;
         }
+    }
+
+    private void showAlertDialog(){
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(getActivity(), android.R.style.Theme_DeviceDefault_Light_Dialog);
+        } else {
+            builder = new AlertDialog.Builder(getActivity());
+        }
+        builder.setTitle("Çıkış Yap")
+                .setMessage("Oturumu kapatmak istediğinize emin misiniz ?")
+                .setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        falseRemember();
+                    }
+                })
+                .setNegativeButton("İptal", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
     private void falseRemember() {
