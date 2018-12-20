@@ -1,12 +1,16 @@
 package us.ahududu.ahududu;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,10 +20,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,11 +50,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Tab1Fragment extends Fragment implements View.OnClickListener {
+    NestedScrollView scHomePage;
+    HorizontalScrollView scSponsored;
     final List<Event> events = new ArrayList<Event>();
     ListView lsFlow;
     EventAdapter eventAdapter;
     String eventsURL = "http://31.210.91.130/api/Activity/GetSpecializedActivity";
     String sponsoredURL = "http://31.210.91.130/api/Sponsored/GetSponsoredEvents";
+    String categorisedURL = "http://31.210.91.130/api/Activity/GetCategorizedActivity?id=";
     String strToken;
     int[] spnIDs = new int[4];
 
@@ -68,7 +77,6 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab1_fragment,container,false);
         connectUI(view);
-
         getToken();
         getEvents();
         getSponsoredEvents();
@@ -89,6 +97,9 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
     }
 
     private void connectUI(View view){
+        scHomePage = view.findViewById(R.id.scHomePage);
+        scSponsored = view.findViewById(R.id.scSponsored);
+
         imgSpn1 = view.findViewById(R.id.spnImage1);
         imgSpn2 = view.findViewById(R.id.spnImage2);
         imgSpn3 = view.findViewById(R.id.spnImage3);
@@ -301,7 +312,59 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
 
     private void getEventsByCtg(int ctgId){
         String id = Integer.toString(ctgId);
-        Toast.makeText(getActivity().getApplicationContext(),id,Toast.LENGTH_LONG).show();
+        RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
+
+        StringRequest jsonForGetRequest = new StringRequest(
+                Request.Method.GET, categorisedURL + id,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                       Log.e("CategorizedResponse",response);
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            if (jsonArray.length() == 0){
+                                noEventAlert();
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> param = new HashMap<String, String>();
+                param.put("Authorization","Bearer " + strToken);
+                return param;
+            }
+        };
+
+        queue.add(jsonForGetRequest);
+    }
+
+    private void noEventAlert(){
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(getActivity(), android.R.style.Theme_DeviceDefault_Light_Dialog);
+        } else {
+            builder = new AlertDialog.Builder(getActivity());
+        }
+        builder.setTitle("Hata")
+                .setMessage(R.string.noCategorizedEvent)
+                .setPositiveButton("Tamam", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setIcon(R.mipmap.androidlogo)
+                .show();
     }
 
 

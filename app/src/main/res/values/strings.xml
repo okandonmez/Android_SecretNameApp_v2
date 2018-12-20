@@ -58,6 +58,7 @@
 
     <!-- Main Page -->
     <string name="mainPageLastAdded"><b>Son Eklenen Etkinlikler</b></string>
+    <string name="noCategorizedEvent">Üzgünüz. Seçtiğiniz kategoride bir etkinlik bulunamadı. Eğer bu kategoride bir etkinlik oluşturmak isterseniz Dudula sekmesinden ekleyebilirsiniz.</string>
 
 
 </resources>
