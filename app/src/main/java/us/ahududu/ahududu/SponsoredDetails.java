@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 public class SponsoredDetails extends AppCompatActivity {
-    String eventId;
+    int eventId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsored_details);
+
         Bundle extras = getIntent().getExtras();
-        eventId = extras.getString("eventId");
-        Toast.makeText(getApplicationContext(),eventId,Toast.LENGTH_LONG).show();
+        eventId = extras.getInt("eventId");
+        Toast.makeText(getApplicationContext(),eventId+"",Toast.LENGTH_LONG).show();
     }
 }
