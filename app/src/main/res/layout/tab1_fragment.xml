@@ -90,7 +90,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:elevation="10dp"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgnature" />
 
@@ -99,7 +98,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage1"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgsport" />
 
@@ -108,7 +106,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage2"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgscience" />
 
@@ -117,7 +114,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage3"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgcareer" />
 
@@ -126,7 +122,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage4"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgesport" />
 
@@ -135,7 +130,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage5"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgfamily" />
 
@@ -144,7 +138,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage6"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgmusic" />
 
@@ -153,7 +146,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage7"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgfest" />
 
@@ -162,7 +154,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage8"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgcultureart" />
 
@@ -171,7 +162,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage9"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctguniversity" />
 
@@ -180,7 +170,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage10"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgcourse" />
 
@@ -189,7 +178,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage11"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgcars" />
 
@@ -198,7 +186,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage12"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgpet" />
 
@@ -207,7 +194,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage13"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgfood" />
 
@@ -216,7 +202,6 @@
                             android:layout_width="100dp"
                             android:layout_height="120dp"
                             android:layout_toEndOf="@+id/ctgImage14"
-                            android:padding="5dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ctgtravel" />
                     </RelativeLayout>

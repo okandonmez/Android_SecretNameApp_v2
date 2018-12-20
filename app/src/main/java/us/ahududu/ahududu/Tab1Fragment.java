@@ -54,6 +54,8 @@ public class Tab1Fragment extends Fragment {
     ImageView imgSpn1, imgSpn2, imgSpn3, imgSpn4;
     ImageView[] imgSpns;
 
+    ImageView imgCtg1,
+
     TextView txtSpn1, txtSpn2, txtSpn3, txtSpn4;
     TextView[] txtSpns;
 
