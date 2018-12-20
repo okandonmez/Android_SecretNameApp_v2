@@ -55,21 +55,14 @@ public class Tab1Fragment extends Fragment {
     ImageView[] imgSpns;
 
     TextView txtSpn1, txtSpn2, txtSpn3, txtSpn4;
+    TextView[] txtSpns;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab1_fragment,container,false);
-
-        imgSpn1 = view.findViewById(R.id.spnImage1);
-        imgSpn2 = view.findViewById(R.id.spnImage2);
-        imgSpn3 = view.findViewById(R.id.spnImage3);
-        imgSpn4 = view.findViewById(R.id.spnImage4);
-
-        txtSpn1 = view.findViewById(R.id.txtSpn1);
-        txtSpn2 = view.findViewById(R.id.txtSpn2);
-        txtSpn3 = view.findViewById(R.id.txtSpn3);
-        txtSpn4 = view.findViewById(R.id.txtSpn4);
+        connectUI(view);
 
         getToken();
         getEvents();
@@ -89,6 +82,18 @@ public class Tab1Fragment extends Fragment {
         */
 
         return view;
+    }
+
+    private void connectUI(View view){
+        imgSpn1 = view.findViewById(R.id.spnImage1);
+        imgSpn2 = view.findViewById(R.id.spnImage2);
+        imgSpn3 = view.findViewById(R.id.spnImage3);
+        imgSpn4 = view.findViewById(R.id.spnImage4);
+
+        txtSpn1 = view.findViewById(R.id.txtSpn1);
+        txtSpn2 = view.findViewById(R.id.txtSpn2);
+        txtSpn3 = view.findViewById(R.id.txtSpn3);
+        txtSpn4 = view.findViewById(R.id.txtSpn4);
     }
 
     private void getSponsoredEvents(){
