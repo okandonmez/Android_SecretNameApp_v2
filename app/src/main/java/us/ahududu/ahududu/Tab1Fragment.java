@@ -50,11 +50,17 @@ import java.util.List;
 import java.util.Map;
 
 public class Tab1Fragment extends Fragment implements View.OnClickListener {
+
     NestedScrollView scHomePage;
     HorizontalScrollView scSponsored;
+
     final List<Event> events = new ArrayList<Event>();
     ListView lsFlow;
     EventAdapter eventAdapter;
+
+    final List<Event> ctgEvents = new ArrayList<Event>();
+    EventAdapter ctgEventAdapter;
+
     String eventsURL = "http://31.210.91.130/api/Activity/GetSpecializedActivity";
     String sponsoredURL = "http://31.210.91.130/api/Sponsored/GetSponsoredEvents";
     String categorisedURL = "http://31.210.91.130/api/Activity/GetCategorizedActivity?id=";
@@ -83,16 +89,6 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
         lsFlow = view.findViewById(R.id.lsLastAdded);
 
         setListViewHeightBasedOnChildren(lsFlow);
-
-       /* events.add(new Event("deneme1","deneme1","deneme1","deneme1"));
-        events.add(new Event("deneme2","deneme2","deneme2","deneme2"));
-        events.add(new Event("deneme3","deneme3","deneme3","deneme3"));
-        */
-
-       /* Intent intent = new Intent(getActivity().getApplicationContext(), SponsoredDetails.class);
-                intent.putExtra("eventId", id);
-                startActivity(intent);
-        */
         return view;
     }
 
@@ -321,10 +317,46 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
                     public void onResponse(String response) {
                        Log.e("CategorizedResponse",response);
                         try {
-                            JSONArray jsonArray = new JSONArray(response);
+                            final JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() == 0){
                                 noEventAlert();
                                 return;
+                            }
+                            else{
+                                ctgEvents.clear();
+                                for (int i = 0; i < jsonArray.length(); i++){
+                                    if (jsonArray.getJSONObject(i).getInt("price") == 0){
+                                        ctgEvents.add(new Event("Ücretsiz",
+                                                jsonArray.getJSONObject(i).getString("category"),
+                                                jsonArray.getJSONObject(i).getString("name"),
+                                                jsonArray.getJSONObject(i).getString("datediff"),
+                                                jsonArray.getJSONObject(i).getString("url")));
+                                    }
+                                    else{
+                                        ctgEvents.add(new Event(jsonArray.getJSONObject(i).getString("price") + "  ₺",
+                                                jsonArray.getJSONObject(i).getString("category"),
+                                                jsonArray.getJSONObject(i).getString("name"),
+                                                jsonArray.getJSONObject(i).getString("datediff"),
+                                                jsonArray.getJSONObject(i).getString("url")));
+                                    }
+                                }
+                                ctgEventAdapter = new EventAdapter(getActivity(), ctgEvents);
+                                lsFlow.setAdapter(ctgEventAdapter);
+
+                                lsFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                        try {
+                                            String eventId = jsonArray.getJSONObject(position).getString("id");
+                                            Intent intent = new Intent(getActivity().getApplicationContext(), EventDetails.class);
+                                            intent.putExtra("eventId", eventId);
+                                            startActivity(intent);
+                                            Toast.makeText(getActivity(),jsonArray.getJSONObject(position).getString("id"),Toast.LENGTH_LONG).show();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
