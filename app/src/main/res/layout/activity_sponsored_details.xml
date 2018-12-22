@@ -126,7 +126,7 @@
         android:layout_toEndOf="@+id/icnCalendar"
         android:layout_marginTop="12dp"
         android:layout_marginStart="5dp"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"/>
     <ImageView
         android:id="@+id/icnCoin"
@@ -136,7 +136,7 @@
         android:layout_below="@id/txtName"
         android:src="@drawable/coin"
         android:layout_marginTop="12dp"
-        android:layout_marginStart="20dp"/>
+        android:layout_marginStart="10dp"/>
     <TextView
         android:id="@+id/txtPrice"
         android:layout_width="wrap_content"
@@ -147,7 +147,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginStart="5dp"
         android:textStyle="bold"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
     <ImageView
         android:id="@+id/icnClock"
         android:layout_width="25dp"
@@ -156,14 +156,14 @@
         android:layout_below="@id/txtName"
         android:layout_toEndOf="@+id/txtPrice"
         android:layout_marginTop="12dp"
-        android:layout_marginStart="20dp"/>
+        android:layout_marginStart="10dp"/>
     <TextView
         android:id="@+id/txtTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="20.30"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_toEndOf="@id/icnClock"
         android:layout_below="@id/txtName"
         android:layout_marginTop="12dp"
@@ -180,6 +180,7 @@
         android:textSize="16sp"
         android:textColor="#000000"/>
     <ImageView
+        android:id="@+id/attendbtnbottom"
         android:layout_width="400dp"
         android:layout_height="60dp"
         android:src="@drawable/attendbtndetail"
@@ -187,6 +188,37 @@
         android:scaleType="fitXY"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_below="@id/attendbtnbottom"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundgray">
+            <ImageView
+                android:id="@+id/attendiesLogo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/logolandedopeque"
+                android:scaleType="fitXY"
+                android:layout_marginStart="30dp"/>
+            <TextView
+                android:id="@+id/numberOfAttend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+4 kişi katılıyor"
+                android:layout_toEndOf="@+id/attendiesLogo"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="20dp"
+                android:textSize="24sp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>
 

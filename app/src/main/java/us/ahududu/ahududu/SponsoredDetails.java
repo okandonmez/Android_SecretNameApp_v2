@@ -26,18 +26,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Method;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SponsoredDetails extends AppCompatActivity {
 
-    String strUrl, strName, strCategory,strTime, strDate, strPrice, strLocation, strCapacity, strDescription;
+    String strUrl, strName, strCategory, strTime, strDate, strPrice, strLocation, strCapacity, strDescription;
     String sponsoredURL = "http://31.210.91.130/api/Sponsored/GetSponsoredEventsDetails?id=";
     int eventId;
     String strToken;
 
     ImageView imgTitle;
-    TextView txtCategory, txtName;
+    TextView txtCategory, txtName, txtDate, txtPrice, txtTime, txtDescription;
 
     DesignTools designTools;
     EditText edtSearch;
@@ -56,10 +58,18 @@ public class SponsoredDetails extends AppCompatActivity {
         imgTitle = findViewById(R.id.imgSponsored);
         txtCategory = findViewById(R.id.txtCategory);
         txtName = findViewById(R.id.txtName);
+        txtDate = findViewById(R.id.txtDate);
+        txtPrice = findViewById(R.id.txtPrice);
+        txtTime = findViewById(R.id.txtTime);
+        txtDescription = findViewById(R.id.txtDescription);
 
         designTools = new DesignTools();
         designTools.setStatusBarColor(this, R.color.splashStatusBarColor);
 
+        setSearchBar();
+    }
+
+    private void setSearchBar(){
         edtSearch = findViewById(R.id.edtSearchEvent);
         edtSearch.setFocusable(false);
         edtSearch.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +97,6 @@ public class SponsoredDetails extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, sponsoredURL + eventId , new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e("GetEventsResponse", response);
                 try {
                     JSONArray jsonArray = new JSONArray(response);
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
@@ -102,10 +111,16 @@ public class SponsoredDetails extends AppCompatActivity {
                     strCapacity = jsonObject.getString("capacity");
                     strDescription = jsonObject.getString("description");
 
-                    Log.e("url",strUrl);
                     Picasso.get().load(strUrl).into(imgTitle);
                     txtCategory.setText(strCategory);
                     txtName.setText(strName);
+                    txtDate.setText(setDate(strDate));
+                    txtTime.setText(setTime(strTime));
+                    txtDescription.setText(strDescription);
+                    if (Integer.parseInt(strPrice) == 0)
+                        txtPrice.setText(getResources().getString(R.string.free));
+                    else
+                        txtPrice.setText(strPrice + " ₺");
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -127,6 +142,51 @@ public class SponsoredDetails extends AppCompatActivity {
         };
 
         requestQueue.add(stringRequest);
-        // deneme2
+    }
+
+    private String setTime(String time){
+        String[] parts = time.split(":");
+        return parts[0] + "." + parts[1];
+    }
+
+    private String setDate(String date){
+        String[] parts = date.split("T");
+        String onlyDate = parts[0];
+
+        String[] dateDetails = parts[0].split("-");
+
+        Date dtDate = new Date(Integer.parseInt(dateDetails[0]),Integer.parseInt(dateDetails[1]),Integer.parseInt(dateDetails[2]));
+        Calendar c = Calendar.getInstance();
+        c.setTime(dtDate);
+
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        Log.e("deneme",dayOfWeek+"");
+        String lastDate = dateDetails[2] + "." + dateDetails[1] + "." + dateDetails[0];
+
+        switch (dayOfWeek){
+            case 1:
+                lastDate = lastDate + " Çarşamba";
+                break;
+            case 2:
+                lastDate = lastDate + " Perşembe";
+                break;
+            case 3:
+                lastDate = lastDate + " Cuma";
+                break;
+            case 4:
+                lastDate = lastDate + " Cumartesi";
+                break;
+            case 5:
+                lastDate = lastDate + " Pazar";
+                break;
+            case 6:
+                lastDate = lastDate + " Pazartesi";
+                break;
+            case 7:
+                lastDate = lastDate + " Salı";
+                break;
+        }
+
+        return lastDate;
     }
 }
