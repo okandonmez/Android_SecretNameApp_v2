@@ -116,6 +116,7 @@ public class EventDetails extends AppCompatActivity {
                         txtPrice.setText("Ücretsiz");
                     else
                         txtPrice.setText(strPrice + " ₺");
+
                     Picasso.get().load("http://" + strURL).into(imgEventDetail);
                     txtCategory.setText(strCategory);
                     txtName.setText(strName);

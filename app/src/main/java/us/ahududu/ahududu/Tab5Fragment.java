@@ -45,7 +45,7 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
     private static final String getHobbiesURL = "http://31.210.91.130/api/Account/GetHobbies";
     private static final String getProfilePicURL = "http://31.210.91.130/api/Account/GetProfilePhoto";
     CircleImageView imgProfile;
-    ImageView imgSetProfile;
+    ImageView imgSetProfile, imgSetHobbies;
     Button btnLogout;
 
     @Nullable
@@ -71,6 +71,7 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
     private void connectUI(View view){
         imgProfile = view.findViewById(R.id.profilePic);
         imgSetProfile = view.findViewById(R.id.imgSetProfile);
+        imgSetHobbies = view.findViewById(R.id.imgSetHobbies);
         txtName = view.findViewById(R.id.profileName);
         txtMotto = view.findViewById(R.id.profileMotto);
 
@@ -79,11 +80,11 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
         txtCtg3 = view.findViewById(R.id.txtCtg3);
         txtCtg4 = view.findViewById(R.id.txtCtg4);
         txtCtg5 = view.findViewById(R.id.txtCtg5);
-
         btnLogout = view.findViewById(R.id.btnLogout);
 
         txtName.setText("deneme");
         imgSetProfile.setOnClickListener(this);
+        imgSetHobbies.setOnClickListener(this);
         btnLogout.setOnClickListener(this);
     }
 
@@ -181,6 +182,9 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
                 showAlertDialog();
                 //falseRemember();
                 break;
+            case R.id.imgSetHobbies:
+                startActivity(new Intent(getActivity().getApplicationContext(), SelectCategories.class));
+                getActivity().finish();
         }
     }
 

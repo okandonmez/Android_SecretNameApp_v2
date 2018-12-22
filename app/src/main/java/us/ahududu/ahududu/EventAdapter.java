@@ -64,7 +64,7 @@ public class EventAdapter extends BaseAdapter {
         txtPrice.setText(kisi.price);
         txtCategory.setText(kisi.category);
         txtEventTitle.setText(kisi.title);
-        txtTime.setText(kisi.time);
+        txtTime.setText(kisi.time + " gün kaldı");
 
         return satirView;
     }
