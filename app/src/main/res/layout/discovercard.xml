@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvHobbies"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/cvProfile"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:elevation="30dp"
+        android:layout_marginBottom="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/txtTitle"
+            android:text="Şirketlerde Aile Anayasası"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:textColor="#606060"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/imgDiscover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/temp"
+                android:scaleType="fitXY"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/txtTitle"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:src="@drawable/ayrac"
+                android:layout_alignParentBottom="true"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:id="@+id/txtDiscoverDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ahududu'ya özel %20 indirim"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
