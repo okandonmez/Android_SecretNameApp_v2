@@ -54,8 +54,10 @@
         <activity
             android:name=".SearchActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".EventDetails" />
-        <activity android:name=".SponsoredDetails"></activity>
+        <activity android:name=".EventDetails"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".SponsoredDetails"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

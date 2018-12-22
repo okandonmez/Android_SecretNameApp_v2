@@ -1,9 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EventDetails">
+    android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        tools:context=".EventDetails">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/ahuPrimaryColor">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                app:srcCompat="@drawable/logo" />
+
+            <EditText
+                android:id="@+id/edtSearchEvent"
+                android:layout_width="315dp"
+                android:layout_height="27dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="69dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/roundededittext"
+                android:ems="10"
+                android:hint="Etkinlik Ara"
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="28dp"
+                android:background="@drawable/iconsearch" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imgSponsored"
+            android:layout_marginTop="58dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@color/colorAccent"/>
+
+        <ImageView
+            android:id="@+id/imgShade"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="233dp"
+            android:src="@drawable/shaded"/>
+        <TextView
+            android:id="@+id/txtCategory"
+            android:text="Kategori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:layout_marginTop="268dp"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/ahuPrimaryColor"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Etkinlik adı etkinlik adı dendenennene"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="24dp"
+            android:layout_below="@+id/txtCategory"/>
+
+        <ImageView
+            android:id="@+id/spnNavigate"
+            android:layout_width="180dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/txtName"
+            android:layout_marginTop="50dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/navigatebtn" />
+
+        <ImageView
+            android:id="@+id/attendbtn"
+            android:layout_width="180dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/txtName"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="50dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/buyticket" />
+        <ImageView
+            android:id="@+id/icnCalendar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/txtName"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/calendar"/>
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="26.10.18 salı"
+            android:layout_below="@id/txtName"
+            android:layout_toEndOf="@+id/icnCalendar"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/icnCoin"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_toEndOf="@+id/txtDate"
+            android:layout_below="@id/txtName"
+            android:src="@drawable/coin"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"/>
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50 TL"
+            android:layout_below="@+id/txtName"
+            android:layout_toEndOf="@+id/icnCoin"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="5dp"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+        <ImageView
+            android:id="@+id/icnClock"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/clock"
+            android:layout_below="@id/txtName"
+            android:layout_toEndOf="@+id/txtPrice"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"/>
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20.30"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/icnClock"
+            android:layout_below="@id/txtName"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp"/>
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem"
+            android:layout_below="@+id/spnNavigate"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:src="@drawable/attendbtndetail"
+            android:layout_below="@+id/txtDescription"
+            android:scaleType="fitXY"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</ScrollView>

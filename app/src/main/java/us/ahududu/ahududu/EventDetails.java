@@ -64,8 +64,6 @@ public class EventDetails extends AppCompatActivity {
                 return param;
             }
         };
-
         requestQueue.add(stringRequest);
-        // deneme2
     }
 }

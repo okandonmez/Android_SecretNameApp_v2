@@ -1,10 +1,15 @@
 package us.ahududu.ahududu;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -14,6 +19,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -21,17 +31,44 @@ import java.util.Map;
 
 public class SponsoredDetails extends AppCompatActivity {
 
+    String strUrl, strName, strCategory,strTime, strDate, strPrice, strLocation, strCapacity, strDescription;
     String sponsoredURL = "http://31.210.91.130/api/Sponsored/GetSponsoredEventsDetails?id=";
     int eventId;
     String strToken;
+
+    ImageView imgTitle;
+    TextView txtCategory, txtName;
+
+    DesignTools designTools;
+    EditText edtSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsored_details);
-        getEventsId();
+        connectUI();
         getToken();
+        getEventsId();
         getEventDetails();
+    }
+
+    private void connectUI(){
+        imgTitle = findViewById(R.id.imgSponsored);
+        txtCategory = findViewById(R.id.txtCategory);
+        txtName = findViewById(R.id.txtName);
+
+        designTools = new DesignTools();
+        designTools.setStatusBarColor(this, R.color.splashStatusBarColor);
+
+        edtSearch = findViewById(R.id.edtSearchEvent);
+        edtSearch.setFocusable(false);
+        edtSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), SearchActivity.class));
+                overridePendingTransition(0,0);
+            }
+        });
     }
 
     private void getEventsId(){
@@ -47,15 +84,38 @@ public class SponsoredDetails extends AppCompatActivity {
 
     private void getEventDetails(){
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, sponsoredURL + Integer.toString(eventId) , new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, sponsoredURL + eventId , new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.e("GetEventsResponse", response);
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                    strUrl = jsonObject.getString("url");
+                    strName = jsonObject.getString("name");
+                    strCategory = jsonObject.getString("category");
+                    strTime = jsonObject.getString("time");
+                    strDate = jsonObject.getString("date");
+                    strPrice = jsonObject.getString("price");
+                    strLocation = jsonObject.getString("location");
+                    strCapacity = jsonObject.getString("capacity");
+                    strDescription = jsonObject.getString("description");
+
+                    Log.e("url",strUrl);
+                    Picasso.get().load(strUrl).into(imgTitle);
+                    txtCategory.setText(strCategory);
+                    txtName.setText(strName);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("GetEventsErrorResponse", error.toString());
+
             }
         }){
             @Override
@@ -67,5 +127,6 @@ public class SponsoredDetails extends AppCompatActivity {
         };
 
         requestQueue.add(stringRequest);
+        // deneme2
     }
 }
