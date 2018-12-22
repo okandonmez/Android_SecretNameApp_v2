@@ -40,7 +40,7 @@ public class EventDetails extends AppCompatActivity {
     EditText edtSearch;
 
     ImageView imgEventDetail;
-    TextView txtCategory, txtName, txtDate, txtPrice, txtTime;
+    TextView txtCategory, txtName, txtDate, txtPrice, txtTime, txtDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +73,7 @@ public class EventDetails extends AppCompatActivity {
         txtDate = findViewById(R.id.txtDate);
         txtPrice = findViewById(R.id.txtPrice);
         txtTime = findViewById(R.id.txtTime);
+        txtDescription = findViewById(R.id.txtDescription);
     }
 
     private void setSplashColor(){
@@ -111,13 +112,16 @@ public class EventDetails extends AppCompatActivity {
                     strCapacity = jsonObject.getString("Capacity");
                     strDescription = jsonObject.getString("Description");
 
-                    Log.e("responseURL", strURL);
+                    if (Integer.parseInt(strPrice) == 0)
+                        txtPrice.setText("Ücretsiz");
+                    else
+                        txtPrice.setText(strPrice + " ₺");
                     Picasso.get().load("http://" + strURL).into(imgEventDetail);
                     txtCategory.setText(strCategory);
                     txtName.setText(strName);
                     txtDate.setText(designTools.setDate(strDate));
                     txtTime.setText(designTools.setTime(strTime));
-                    txtPrice.setText(strPrice + " ₺");
+                    txtDescription.setText(strDescription);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

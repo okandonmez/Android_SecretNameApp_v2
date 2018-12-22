@@ -57,22 +57,22 @@ public class DesignTools {
 
         switch (dayOfWeek){
             case 1:
-                lastDate = lastDate + " Çarşamba";
+                lastDate = lastDate + " Çrşmb";
                 break;
             case 2:
-                lastDate = lastDate + " Perşembe";
+                lastDate = lastDate + " Prşmb";
                 break;
             case 3:
                 lastDate = lastDate + " Cuma";
                 break;
             case 4:
-                lastDate = lastDate + " Cumartesi";
+                lastDate = lastDate + " Cmrts";
                 break;
             case 5:
                 lastDate = lastDate + " Pazar";
                 break;
             case 6:
-                lastDate = lastDate + " Pazartesi";
+                lastDate = lastDate + " Pzrts";
                 break;
             case 7:
                 lastDate = lastDate + " Salı";

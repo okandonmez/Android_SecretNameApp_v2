@@ -117,17 +117,19 @@
             android:layout_marginTop="12dp"
             android:layout_marginStart="10dp"
             android:src="@drawable/calendar"/>
+
         <TextView
             android:id="@+id/txtDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="26.10.18 salı"
             android:layout_below="@id/txtName"
-            android:layout_toEndOf="@+id/icnCalendar"
-            android:layout_marginTop="12dp"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/icnCalendar"
+            android:maxWidth="150dp"
+            android:text="26.10.18 Pzrts"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
         <ImageView
             android:id="@+id/icnCoin"
             android:layout_width="25dp"
