@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -16,11 +18,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class EventDetails extends AppCompatActivity {
+
+    String strName, strCategory, strURL, strTime, strDate, strPrice, strLocation, strCapacity, strDescription;
 
     String strToken;
     String eventId;
@@ -29,6 +38,9 @@ public class EventDetails extends AppCompatActivity {
     DesignTools designTools;
 
     EditText edtSearch;
+
+    ImageView imgEventDetail;
+    TextView txtCategory, txtName, txtDate, txtPrice, txtTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +67,12 @@ public class EventDetails extends AppCompatActivity {
     }
 
     private void connectUI(){
-
+        imgEventDetail = findViewById(R.id.imgEventDetail);
+        txtCategory = findViewById(R.id.txtCategory);
+        txtName = findViewById(R.id.txtName);
+        txtDate = findViewById(R.id.txtDate);
+        txtPrice = findViewById(R.id.txtPrice);
+        txtTime = findViewById(R.id.txtTime);
     }
 
     private void setSplashColor(){
@@ -80,6 +97,30 @@ public class EventDetails extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.e("GetEventsResponse", response);
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                    strName = jsonObject.getString("Name");
+                    strCategory = jsonObject.getString("Category");
+                    strURL = jsonObject.getString("Url");
+                    strDate = jsonObject.getString("Date");
+                    strTime = jsonObject.getString("Time");
+                    strPrice = jsonObject.getString("Price");
+                    strLocation = jsonObject.getString("Location");
+                    strCapacity = jsonObject.getString("Capacity");
+                    strDescription = jsonObject.getString("Description");
+
+                    Log.e("responseURL", strURL);
+                    Picasso.get().load("http://" + strURL).into(imgEventDetail);
+                    txtCategory.setText(strCategory);
+                    txtName.setText(strName);
+                    txtDate.setText(designTools.setDate(strDate));
+                    txtTime.setText(designTools.setTime(strTime));
+                    txtPrice.setText(strPrice + " ₺");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override

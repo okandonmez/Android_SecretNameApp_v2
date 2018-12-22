@@ -114,8 +114,8 @@ public class SponsoredDetails extends AppCompatActivity {
                     Picasso.get().load(strUrl).into(imgTitle);
                     txtCategory.setText(strCategory);
                     txtName.setText(strName);
-                    txtDate.setText(setDate(strDate));
-                    txtTime.setText(setTime(strTime));
+                    txtDate.setText(designTools.setDate(strDate));
+                    txtTime.setText(designTools.setTime(strTime));
                     txtDescription.setText(strDescription);
                     if (Integer.parseInt(strPrice) == 0)
                         txtPrice.setText(getResources().getString(R.string.free));
@@ -142,51 +142,5 @@ public class SponsoredDetails extends AppCompatActivity {
         };
 
         requestQueue.add(stringRequest);
-    }
-
-    private String setTime(String time){
-        String[] parts = time.split(":");
-        return parts[0] + "." + parts[1];
-    }
-
-    private String setDate(String date){
-        String[] parts = date.split("T");
-        String onlyDate = parts[0];
-
-        String[] dateDetails = parts[0].split("-");
-
-        Date dtDate = new Date(Integer.parseInt(dateDetails[0]),Integer.parseInt(dateDetails[1]),Integer.parseInt(dateDetails[2]));
-        Calendar c = Calendar.getInstance();
-        c.setTime(dtDate);
-
-        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-        Log.e("deneme",dayOfWeek+"");
-        String lastDate = dateDetails[2] + "." + dateDetails[1] + "." + dateDetails[0];
-
-        switch (dayOfWeek){
-            case 1:
-                lastDate = lastDate + " Çarşamba";
-                break;
-            case 2:
-                lastDate = lastDate + " Perşembe";
-                break;
-            case 3:
-                lastDate = lastDate + " Cuma";
-                break;
-            case 4:
-                lastDate = lastDate + " Cumartesi";
-                break;
-            case 5:
-                lastDate = lastDate + " Pazar";
-                break;
-            case 6:
-                lastDate = lastDate + " Pazartesi";
-                break;
-            case 7:
-                lastDate = lastDate + " Salı";
-                break;
-        }
-
-        return lastDate;
     }
 }
