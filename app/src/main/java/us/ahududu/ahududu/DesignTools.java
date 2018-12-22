@@ -36,5 +36,4 @@ public class DesignTools {
     public void hideProgressBar(ProgressBar pb){                         // Change visibility yo INVISIBLE for Progress Bar
         pb.setVisibility(View.INVISIBLE);
     }
-
 }

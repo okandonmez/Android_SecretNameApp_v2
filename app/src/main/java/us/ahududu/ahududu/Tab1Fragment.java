@@ -399,7 +399,6 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
                 .show();
     }
 
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){

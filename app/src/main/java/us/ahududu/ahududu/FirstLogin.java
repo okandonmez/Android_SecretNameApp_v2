@@ -84,6 +84,7 @@ public class FirstLogin extends AppCompatActivity {
         connectUI();
         getToken();
     }
+
     private void connectUI(){
         pbFirstLogin = findViewById(R.id.pbFirstLogin);
         imgGoNext = findViewById(R.id.imgNext);
@@ -135,7 +136,6 @@ public class FirstLogin extends AppCompatActivity {
             }
         });
     }
-
 
     public void showRadioButtonDialog() {
         AlertDialog levelDialog = null;
@@ -281,8 +281,5 @@ public class FirstLogin extends AppCompatActivity {
         }
         return true;
     }
-
-
-
 
 }

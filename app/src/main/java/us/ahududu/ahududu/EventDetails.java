@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -24,13 +26,41 @@ public class EventDetails extends AppCompatActivity {
     String eventId;
     String eventDetailsURL = "http://31.210.91.130/api/Activity/GetSpecActDetails?id=";
 
+    DesignTools designTools;
+
+    EditText edtSearch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
+        setSplashColor();
+        setSearchBar();
+        connectUI();
         getToken();
         getEventId();
         getEventDetails();
+    }
+
+    private void setSearchBar(){
+        edtSearch = findViewById(R.id.edtSearchEvent);
+        edtSearch.setFocusable(false);
+        edtSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), SearchActivity.class));
+                overridePendingTransition(0,0);
+            }
+        });
+    }
+
+    private void connectUI(){
+
+    }
+
+    private void setSplashColor(){
+        designTools = new DesignTools();
+        designTools.setStatusBarColor(this, R.color.splashStatusBarColor);
     }
 
     private void getEventId(){

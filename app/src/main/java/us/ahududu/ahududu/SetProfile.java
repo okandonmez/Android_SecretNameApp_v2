@@ -12,6 +12,7 @@ public class SetProfile extends AppCompatActivity {
         setContentView(R.layout.activity_set_profile);
         setStatusBar();
     }
+
     private void setStatusBar(){
         designTools = new DesignTools();
         designTools.setStatusBarColor(this, R.color.splashStatusBarColor);

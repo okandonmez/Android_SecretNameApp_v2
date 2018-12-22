@@ -116,7 +116,6 @@ public class AddQuickEvent extends AppCompatActivity implements View.OnClickList
         }
     }
 
-
     private void setDate(){
         cr = Calendar.getInstance();
         int day = cr.get(Calendar.DAY_OF_MONTH);
