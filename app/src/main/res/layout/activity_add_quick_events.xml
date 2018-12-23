@@ -129,6 +129,17 @@
                     android:paddingTop="9dp"
                     android:textSize="18sp" />
 
+                <TextView
+                    android:id="@+id/edtTime"
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/edtCtg"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="170dp"
+                    android:paddingStart="12dp"
+                    android:paddingTop="9dp"
+                    android:textSize="18sp" />
+
                 <Button
                     android:id="@+id/btnShare"
                     android:layout_width="350dp"

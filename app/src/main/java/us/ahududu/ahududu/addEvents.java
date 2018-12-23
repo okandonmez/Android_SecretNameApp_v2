@@ -2,6 +2,7 @@ package us.ahududu.ahududu;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -40,11 +43,11 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class addEvents extends AppCompatActivity implements View.OnClickListener {
+public class addEvents extends AppCompatActivity implements View.OnClickListener, TimePickerDialog.OnTimeSetListener {
     Button btnBack;
     DesignTools designTools;
     EditText edtName, edtCategories, edtPrice;
-    TextView txtDate, txtIsPriced;
+    TextView txtDate, txtIsPriced, txtTime;
     int addedEventId;
     private static final int PICK_IMAGE = 100;
     Boolean isPriced = false;
@@ -78,6 +81,7 @@ public class addEvents extends AppCompatActivity implements View.OnClickListener
         edtPrice = findViewById(R.id.edtPrice);
         btnPublish = findViewById(R.id.btnShare);
         crcProfile = findViewById(R.id.crcEventName);
+        txtTime = findViewById(R.id.edtTime);
 
         btnBack.setOnClickListener(this);
         edtCategories.setOnClickListener(this);
@@ -86,11 +90,17 @@ public class addEvents extends AppCompatActivity implements View.OnClickListener
         txtIsPriced.setOnClickListener(this);
         btnPublish.setOnClickListener(this);
         crcProfile.setOnClickListener(this);
+        txtTime.setOnClickListener(this);
     }
 
     private void setStatusBar() {
         designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(this, R.color.splashStatusBarColor);
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        txtTime.setText(hourOfDay + ":" + minute );
     }
 
     @Override
@@ -115,9 +125,16 @@ public class addEvents extends AppCompatActivity implements View.OnClickListener
             case R.id.crcEventName:
                 openGallery();
                 break;
-
-
+            case R.id.edtTime:
+                setTime();
+                break;
         }
+    }
+
+    private void setTime(){
+        DialogFragment timePicker = new TimePickerFragment();
+        timePicker.show(getSupportFragmentManager(), "time picker");
+
     }
 
     private void setIsPriced(){
@@ -149,7 +166,6 @@ public class addEvents extends AppCompatActivity implements View.OnClickListener
         levelDialog.show();
     }
 
-
     private void setDate(){
         cr = Calendar.getInstance();
         int day = cr.get(Calendar.DAY_OF_MONTH);
@@ -168,7 +184,7 @@ public class addEvents extends AppCompatActivity implements View.OnClickListener
 
     private void showRadioButtonDialog() {
         AlertDialog levelDialog = null;
-        final CharSequence[] items = {" Doğa "," Spor", "Bilim & Öğrenme", "Kariyer", "E-Spor", "Aile & Çocuk", "Müzik", "Festival", "Kültür Sanat", "Üniversite", "Ders", "Araçlar", "Evcil Hayvan", "Yeme İçme", "Seyahat"};
+        final CharSequence[] items = {"Doğa ","Spor", "Bilim & Öğrenme", "Kariyer", "E-Spor", "Aile & Çocuk", "Müzik", "Festival", "Kültür Sanat", "Üniversite", "Ders", "Araçlar", "Evcil Hayvan", "Yeme İçme", "Seyahat"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Kategori :");
         final AlertDialog finalLevelDialog = levelDialog;
@@ -237,7 +253,7 @@ public class addEvents extends AppCompatActivity implements View.OnClickListener
         final String name = edtName.getText().toString();
         final String category = txtCategorySelect.getText().toString();
         final String date = txtDate.getText().toString();
-        final String time = "19:00";
+        final String time = txtTime.getText().toString();
         final String strIsPriced2 = isPriced.toString();
         final String location = "Istanbul";
         final String capacity = "Sınırsız";
@@ -251,7 +267,7 @@ public class addEvents extends AppCompatActivity implements View.OnClickListener
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // Log.e("PostEventResponse", response);
+                         Log.e("PostEventResponse", response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean isSuccess = jsonObject.getBoolean("Sonuc");
