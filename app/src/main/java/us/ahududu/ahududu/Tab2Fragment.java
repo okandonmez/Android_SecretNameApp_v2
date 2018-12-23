@@ -1,5 +1,6 @@
 package us.ahududu.ahududu;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -39,15 +40,15 @@ public class Tab2Fragment extends Fragment {
 
         String detail = "Ahududu'ya özel %20 indirim";
         String[] details = setDetail(detail);
-        events.add(new Discover(details[0], details[2], details[3], title1,"http://31.210.91.130/ActivityPhoto/18.jpg"));
+        events.add(new Discover(details[0], details[2], details[3], title1,"http://31.210.91.130/ActivityPhoto/18.jpg", getActivity().getApplicationContext()));
 
         detail = "Ahududu'ya özel %10 indirim";
         details = setDetail(detail);
-        events.add(new Discover(details[0], details[2], details[3], title2,"http://31.210.91.130/ActivityPhoto/41.jpg"));
+        events.add(new Discover(details[0], details[2], details[3], title2,"http://31.210.91.130/ActivityPhoto/41.jpg", getActivity().getApplicationContext()));
 
         detail = "Ahududu'ya özel %30 indirim";
         details = setDetail(detail);
-        events.add(new Discover(details[0], details[2], details[3], title3,"http://31.210.91.130/ActivityPhoto/43.jpg"));
+        events.add(new Discover(details[0], details[2], details[3], title3,"http://31.210.91.130/ActivityPhoto/43.jpg", getActivity().getApplicationContext()));
 
         discoverAdapter = new DiscoverAdapter(getActivity(), events);
         lsFlow.setAdapter(discoverAdapter);
@@ -56,7 +57,6 @@ public class Tab2Fragment extends Fragment {
     private String[] setDetail(String text){
         String[] detailParts =  text.split(" ");
         detailParts[0] = detailParts[0] + " " + detailParts[1];
-
         return detailParts;
     }
 }

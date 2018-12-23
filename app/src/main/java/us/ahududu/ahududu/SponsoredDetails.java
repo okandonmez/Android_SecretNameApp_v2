@@ -63,7 +63,7 @@ public class SponsoredDetails extends AppCompatActivity {
         txtTime = findViewById(R.id.txtTime);
         txtDescription = findViewById(R.id.txtDescription);
 
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(this, R.color.splashStatusBarColor);
 
         setSearchBar();

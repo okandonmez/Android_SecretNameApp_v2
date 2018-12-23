@@ -3,6 +3,7 @@ package us.ahududu.ahududu;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -12,10 +13,15 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 
+import java.lang.reflect.Type;
 import java.util.Calendar;
 import java.util.Date;
 
 public class DesignTools {
+    Context mContext;
+    public DesignTools(Context mContext){
+        this.mContext = mContext;
+    }
     public void setStatusBarColor (Activity activity, int colorPath) {            // Changing Status Bar Color
         Window window = activity.getWindow();
         // clear FLAG_TRANSLUCENT_STATUS flag:
@@ -85,5 +91,9 @@ public class DesignTools {
     public String setTime(String time){
         String[] parts = time.split(":");
         return parts[0] + "." + parts[1];
+    }
+
+    public Typeface getTypeFace (String path){
+        return Typeface.createFromAsset(mContext.getAssets(), path);
     }
 }

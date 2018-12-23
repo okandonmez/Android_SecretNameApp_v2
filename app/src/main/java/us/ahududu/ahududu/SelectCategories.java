@@ -136,7 +136,7 @@ public class SelectCategories extends AppCompatActivity implements View.OnClickL
     }
 
     private void setStatusColor(){
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(activity, R.color.splashStatusBarColor);
     }
 

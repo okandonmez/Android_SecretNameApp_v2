@@ -79,7 +79,7 @@ public class FirstLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_login);
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(activity,R.color.splashStatusBarColor);
         connectUI();
         getToken();

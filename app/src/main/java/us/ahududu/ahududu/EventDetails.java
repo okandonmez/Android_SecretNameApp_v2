@@ -77,7 +77,7 @@ public class EventDetails extends AppCompatActivity {
     }
 
     private void setSplashColor(){
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(this, R.color.splashStatusBarColor);
     }
 

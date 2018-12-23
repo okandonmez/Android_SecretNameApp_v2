@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         activity = this;
 
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(activity,R.color.loginStatusBarColor);
 
         connectUI(); // connecting edittext and passwords to backend

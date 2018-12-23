@@ -14,7 +14,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(mActivity,R.color.splashStatusBarColor);
         edtSearch = findViewById(R.id.edtSearchEvent);
         edtSearch.requestFocus();

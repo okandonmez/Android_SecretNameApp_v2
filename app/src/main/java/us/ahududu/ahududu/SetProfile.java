@@ -14,7 +14,7 @@ public class SetProfile extends AppCompatActivity {
     }
 
     private void setStatusBar(){
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(this, R.color.splashStatusBarColor);
     }
 }

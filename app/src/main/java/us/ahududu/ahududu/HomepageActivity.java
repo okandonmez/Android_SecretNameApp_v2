@@ -51,7 +51,7 @@ public class HomepageActivity extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(4);
         setupViewPager(mViewPager);
 
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
 
         edtSearch = findViewById(R.id.edtSearchEvent);
         edtSearch.setFocusable(false);

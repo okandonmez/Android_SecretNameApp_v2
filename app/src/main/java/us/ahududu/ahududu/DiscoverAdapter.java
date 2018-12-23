@@ -2,6 +2,7 @@ package us.ahududu.ahududu;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +59,10 @@ public class DiscoverAdapter extends BaseAdapter {
         url = kisi.url;
         Picasso.get().load(url).into(imageView);
         txtEventTitle.setText(kisi.title);
+
+        DesignTools designTools = new DesignTools(kisi.mContext);
+        txtEventTitle.setTypeface(designTools.getTypeFace("fonts/metropolis.regular.otf"));
+
         txtDetail.setText(Html.fromHtml(kisi.detail1 + " " + "<font color=#d00053>" + kisi.detail2 + "</font>" + " indirim"));
 
         return satirView;

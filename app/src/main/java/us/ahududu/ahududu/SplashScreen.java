@@ -44,7 +44,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         getRememberStatus();
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(activity,R.color.splashStatusBarColor);
     }
 
@@ -136,7 +136,6 @@ public class SplashScreen extends AppCompatActivity {
 
         queue.add(jsonForGetRequest);
     }
-
 
     private void storeToToken(String token){
         SharedPreferences settings = getApplicationContext().getSharedPreferences("tokenizer", Context.MODE_PRIVATE);

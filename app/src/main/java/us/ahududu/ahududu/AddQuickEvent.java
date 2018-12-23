@@ -88,7 +88,7 @@ public class AddQuickEvent extends AppCompatActivity implements View.OnClickList
     }
 
     private void setStatusBar() {
-        designTools = new DesignTools();
+        designTools = new DesignTools(getApplicationContext());
         designTools.setStatusBarColor(this, R.color.splashStatusBarColor);
     }
 
