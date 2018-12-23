@@ -216,6 +216,7 @@ public class FirstLogin extends AppCompatActivity {
                             if (isSuccess){
                                 Intent intent = new Intent(getApplicationContext(), SelectCategories.class);
                                 startActivity(intent);
+                                FirstLogin.this.finish();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

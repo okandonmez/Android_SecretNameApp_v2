@@ -177,6 +177,7 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
             case R.id.imgSetProfile:
                 Intent intent = new Intent(getActivity().getApplicationContext(), FirstLogin.class);
                 startActivity(intent);
+                getActivity().finish();
                 break;
             case R.id.btnLogout:
                 showAlertDialog();

@@ -244,6 +244,7 @@ public class SelectCategories extends AppCompatActivity implements View.OnClickL
                             if (jsonObject.getBoolean("sonuc:")){
                                 Intent intent = new Intent(getApplicationContext(),HomepageActivity.class);
                                 startActivity(intent);
+                                SelectCategories.this.finish();
                             }
 
                         } catch (JSONException e) {
