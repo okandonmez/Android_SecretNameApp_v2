@@ -152,6 +152,9 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        catch (ArrayIndexOutOfBoundsException e){
+                            Log.e("ArrayIndexOut", "Error");
+                        }
                     }
                 }, new Response.ErrorListener() {
 

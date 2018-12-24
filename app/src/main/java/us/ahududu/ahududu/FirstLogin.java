@@ -8,9 +8,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -18,6 +20,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -39,10 +42,17 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import net.gotev.uploadservice.MultipartUploadRequest;
+import net.gotev.uploadservice.UploadNotificationConfig;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -56,7 +66,7 @@ public class FirstLogin extends AppCompatActivity {
    // private static final String TAG = "FirstLogin";
     private static final String PREFS_NAME = "preferenceName";
     private static final String postProfileURL = "http://31.210.91.130/api/Account/UpdateUserInfo";
-    private static final String postProfilePhoto = "http://31.210.91.130/api/Account/PostProfilePhoto";
+    private static final String postProfilePhotoURL = "http://31.210.91.130/api/Account/PostProfilePhoto";
     private EditText edtName, edtMotto;
     private TextView edtDate;
     private TextView edtGender;
@@ -67,12 +77,14 @@ public class FirstLogin extends AppCompatActivity {
     Uri imageURI;
     Calendar cr;
     DatePickerDialog dpd;
-    private static final int PICK_IMAGE = 100;
+    private static int PICK_IMAGE = 1;
     CircleImageView crcProfile;
     String token;
     ProgressBar pbFirstLogin;
     DesignTools designTools;
     Activity activity = this;
+    String bitmapPath;
+    private Bitmap bitmap;
 
 
     @Override
@@ -94,6 +106,7 @@ public class FirstLogin extends AppCompatActivity {
                 if (checkEmptyFields()){
                     pbFirstLogin.setVisibility(View.VISIBLE);
                     postProfileDetails();
+                    postProfilePhoto();
                 }
 
             }
@@ -174,16 +187,22 @@ public class FirstLogin extends AppCompatActivity {
     }
 
     private void openGallery(){
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, PICK_IMAGE);
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE && data != null){
             imageURI = data.getData();
-            //imgProfile.setImageURI(imageURI);
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageURI);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             crcProfile.setImageURI(imageURI);
         }
     }
@@ -215,8 +234,8 @@ public class FirstLogin extends AppCompatActivity {
                             boolean isSuccess = jsonObject.getBoolean("sonuc:");
                             if (isSuccess){
                                 Intent intent = new Intent(getApplicationContext(), SelectCategories.class);
-                                startActivity(intent);
-                                FirstLogin.this.finish();
+                               // startActivity(intent);
+                               // FirstLogin.this.finish();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -254,6 +273,56 @@ public class FirstLogin extends AppCompatActivity {
             }
         };
         queue.add(jsonForGetRequest);
+    }
+
+    private void postProfilePhoto(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        StringRequest jsonForGetRequest = new StringRequest(
+                Request.Method.POST,postProfileURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("responseImage", response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> param = new HashMap<String, String>();
+                param.put("file", imageToString(bitmap));
+                return param;
+            }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> param = new HashMap<String, String>();
+                param.put("Authorization", "Bearer "+token);
+                return param;
+            }
+        };
+        queue.add(jsonForGetRequest);
+    }
+
+    private String imageToString(Bitmap bitmap){
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        byte[] imgBytes = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(imgBytes, Base64.DEFAULT);
+    }
+
+    private String getRealPathFromURI(Uri contentUri) {
+        String[] proj = { MediaStore.Images.Media.DATA };
+        CursorLoader loader = new CursorLoader(getApplicationContext(), contentUri, proj, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String result = cursor.getString(column_index);
+        cursor.close();
+        return result;
     }
 
     private void getToken(){

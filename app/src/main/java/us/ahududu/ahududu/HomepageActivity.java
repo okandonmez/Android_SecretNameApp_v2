@@ -14,6 +14,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import net.gotev.uploadservice.UploadService;
+
 public class HomepageActivity extends AppCompatActivity {
 
     private SectionPageAdapter mSectionPageAdapter;
@@ -33,6 +35,7 @@ public class HomepageActivity extends AppCompatActivity {
         setTabLayout();
         designTools.setStatusBarColor(mActivity,R.color.splashStatusBarColor);
         sad();
+        UploadService.NAMESPACE = "us.ahududu.ahududu";
     }
 
     private void sad(){
