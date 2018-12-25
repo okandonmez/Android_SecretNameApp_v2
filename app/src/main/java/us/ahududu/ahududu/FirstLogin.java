@@ -85,8 +85,6 @@ public class FirstLogin extends AppCompatActivity {
     Activity activity = this;
     String bitmapPath;
     private Bitmap bitmap;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,7 +104,7 @@ public class FirstLogin extends AppCompatActivity {
                 if (checkEmptyFields()){
                     pbFirstLogin.setVisibility(View.VISIBLE);
                     postProfileDetails();
-                    postProfilePhoto();
+                    //postProfilePhoto();
                 }
 
             }
@@ -234,8 +232,8 @@ public class FirstLogin extends AppCompatActivity {
                             boolean isSuccess = jsonObject.getBoolean("sonuc:");
                             if (isSuccess){
                                 Intent intent = new Intent(getApplicationContext(), SelectCategories.class);
-                               // startActivity(intent);
-                               // FirstLogin.this.finish();
+                                startActivity(intent);
+                                FirstLogin.this.finish();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -351,5 +349,4 @@ public class FirstLogin extends AppCompatActivity {
         }
         return true;
     }
-
 }
