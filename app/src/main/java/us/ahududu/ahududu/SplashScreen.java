@@ -61,6 +61,7 @@ public class SplashScreen extends AppCompatActivity {
         }, splashTime);
     }
 
+    // Check Remember me is checked or not
     private void getRememberStatus(){
         SharedPreferences settings = getApplicationContext().getSharedPreferences("tokenizer", Context.MODE_PRIVATE);
         isRemember = settings.getBoolean("isRemember", false);
