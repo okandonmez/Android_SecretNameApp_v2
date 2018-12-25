@@ -3,6 +3,7 @@
     package="us.ahududu.ahududu">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -40,7 +41,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".addEvents"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/appThemeDeneme"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".AddQuickEvent"

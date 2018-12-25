@@ -75,6 +75,7 @@ public class SplashScreen extends AppCompatActivity {
         }
     }
 
+    // Token Request
     private void loginRequest() {
         RequestQueue queue = Volley.newRequestQueue(this);
 

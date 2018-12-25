@@ -27,4 +27,20 @@
         <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
 
+    <style name="appThemeDeneme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorAccent">@color/ahuPrimaryColor</item>
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
+    </style>
+
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+        <item name="android:colorAccent">@color/ahuPrimaryColor</item>
+    </style>
+
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:colorAccent">@color/ahuPrimaryColor</item>
+        <item name="android:headerBackground">@color/ahuPrimaryColor</item>
+        <item name="android:colorPrimary">@color/ahuPrimaryColor</item>
+    </style>
+
 </resources>
