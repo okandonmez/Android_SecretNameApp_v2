@@ -32,6 +32,7 @@ import com.bumptech.glide.load.model.LazyHeaders;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +40,7 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Tab5Fragment extends Fragment implements View.OnClickListener {
-    TextView txtName, txtMotto, txtCtg1, txtCtg2, txtCtg3, txtCtg4, txtCtg5, txtHobbyTitle;
+    TextView txtName, txtMotto, txtCtg1, txtCtg2, txtCtg3, txtCtg4, txtCtg5, txtHobbyTitle, txtWillGo, txtMyActions;
     String token, strName, strMotto;
     private static final String getProfileDetailsURL = "http://31.210.91.130/api/Account/GetUserInfos";
     private static final String getHobbiesURL = "http://31.210.91.130/api/Account/GetHobbies";
@@ -77,9 +78,13 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
         txtName = view.findViewById(R.id.profileName);
         txtMotto = view.findViewById(R.id.profileMotto);
         txtHobbyTitle = view.findViewById(R.id.hobbyTitle);
+        txtWillGo = view.findViewById(R.id.willGoTitle);
+        txtMyActions = view.findViewById(R.id.myActionsTitle);
 
-        txtHobbyTitle.setTypeface(designTools.getTypeFace("fonts/metropolis.regular.otf"));
-
+        setFont(txtHobbyTitle,"fonts/metropolis.regular.otf");
+        setFont(txtWillGo,"fonts/metropolis.regular.otf");
+        setFont(txtMyActions,"fonts/metropolis.regular.otf");
+        
         txtCtg1 = view.findViewById(R.id.txtCtg1);
         txtCtg2 = view.findViewById(R.id.txtCtg2);
         txtCtg3 = view.findViewById(R.id.txtCtg3);
@@ -96,6 +101,10 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
     private void getToken(){
         SharedPreferences settings = getActivity().getApplicationContext().getSharedPreferences("tokenizer", Context.MODE_PRIVATE);
         token = settings.getString("access_token", "no_token");
+    }
+
+    private void setFont(TextView txtView, String fontPath){
+        txtView.setTypeface(designTools.getTypeFace(fontPath));
     }
 
     private void getProfileDetails(){
