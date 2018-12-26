@@ -39,7 +39,7 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Tab5Fragment extends Fragment implements View.OnClickListener {
-    TextView txtName, txtMotto, txtCtg1, txtCtg2, txtCtg3, txtCtg4, txtCtg5;
+    TextView txtName, txtMotto, txtCtg1, txtCtg2, txtCtg3, txtCtg4, txtCtg5, txtHobbyTitle;
     String token, strName, strMotto;
     private static final String getProfileDetailsURL = "http://31.210.91.130/api/Account/GetUserInfos";
     private static final String getHobbiesURL = "http://31.210.91.130/api/Account/GetHobbies";
@@ -47,11 +47,13 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
     CircleImageView imgProfile;
     ImageView imgSetProfile, imgSetHobbies;
     Button btnLogout;
+    DesignTools designTools;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab5_fragment,container,false);
+        designTools = new DesignTools(getActivity().getApplicationContext());
         connectUI(view);
         getToken();
         getProfilePic();
@@ -74,6 +76,9 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
         imgSetHobbies = view.findViewById(R.id.imgSetHobbies);
         txtName = view.findViewById(R.id.profileName);
         txtMotto = view.findViewById(R.id.profileMotto);
+        txtHobbyTitle = view.findViewById(R.id.hobbyTitle);
+
+        txtHobbyTitle.setTypeface(designTools.getTypeFace("fonts/metropolis.regular.otf"));
 
         txtCtg1 = view.findViewById(R.id.txtCtg1);
         txtCtg2 = view.findViewById(R.id.txtCtg2);
@@ -106,6 +111,8 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
                             strName = jsonObject.getString("Name:");
                             strMotto = jsonObject.getString("Motto:");
 
+                            txtName.setTypeface(designTools.getTypeFace("fonts/metropolis.regular.otf"));
+                            txtMotto.setTypeface(designTools.getTypeFace("fonts/metropolis.regular.otf"));
                             txtName.setText(strName);
                             txtMotto.setText(strMotto);
                         } catch (JSONException e) {
