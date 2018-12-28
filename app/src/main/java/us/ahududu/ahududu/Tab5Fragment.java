@@ -84,7 +84,7 @@ public class Tab5Fragment extends Fragment implements View.OnClickListener {
         setFont(txtHobbyTitle,"fonts/metropolis.regular.otf");
         setFont(txtWillGo,"fonts/metropolis.regular.otf");
         setFont(txtMyActions,"fonts/metropolis.regular.otf");
-        
+
         txtCtg1 = view.findViewById(R.id.txtCtg1);
         txtCtg2 = view.findViewById(R.id.txtCtg2);
         txtCtg3 = view.findViewById(R.id.txtCtg3);
