@@ -47,7 +47,7 @@
                 android:src="@drawable/underconst2" />
         </RelativeLayout>
         </android.support.v7.widget.CardView>
-            
+
         <android.support.v7.widget.CardView
             android:id="@+id/cvMyActions"
             android:layout_marginTop="15dp"
@@ -116,7 +116,6 @@
                     android:layout_marginTop="10dp"
                     android:text="@string/hobbyProfile"
                     android:textSize="18sp" />
-
                 <TextView
                     android:id="@+id/txtCtg1"
                     android:layout_width="wrap_content"
