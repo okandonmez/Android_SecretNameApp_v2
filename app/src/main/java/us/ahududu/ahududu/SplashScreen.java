@@ -33,6 +33,7 @@ public class SplashScreen extends AppCompatActivity {
 
     private Activity activity = this;
     private DesignTools designTools;
+
     String username;
     String password;
     Boolean isRemember;
@@ -48,7 +49,7 @@ public class SplashScreen extends AppCompatActivity {
         designTools.setStatusBarColor(activity,R.color.splashStatusBarColor);
     }
 
-    // Go to login page
+    // Meanwhile Go to login page
     private void setSplashLogic(int splashTime){    // Splash time is milisecond
         new Handler().postDelayed(new Runnable(){
             @Override
@@ -139,6 +140,7 @@ public class SplashScreen extends AppCompatActivity {
         queue.add(jsonForGetRequest);
     }
 
+    // Store the token for session operations
     private void storeToToken(String token){
         SharedPreferences settings = getApplicationContext().getSharedPreferences("tokenizer", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
@@ -146,6 +148,7 @@ public class SplashScreen extends AppCompatActivity {
         editor.commit();
     }
 
+    // Parsing volley error as numerical code to string
     private void parseVolleyError(VolleyError error) throws UnsupportedEncodingException, JSONException {
         try{
             String responseBody = new String(error.networkResponse.data, "utf-8");

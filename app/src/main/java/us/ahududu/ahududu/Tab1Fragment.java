@@ -197,7 +197,6 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
                 return param;
             }
         };
-
         queue.add(jsonForGetRequest);
     }
 
@@ -244,7 +243,6 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
                         Log.e("response", response);
                         try {
                             final JSONArray jsonArray = new JSONArray(response);
-
                             for (int i = 0; i < jsonArray.length(); i++){
                                 if (jsonArray.getJSONObject(i).getInt("price") == 0){
                                     events.add(new Event("Ücretsiz",
