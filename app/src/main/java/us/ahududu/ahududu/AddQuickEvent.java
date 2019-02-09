@@ -56,9 +56,7 @@ public class AddQuickEvent extends AppCompatActivity implements View.OnClickList
     Button btnPublish;
     Uri imageURI;
     CircleImageView crcProfile;
-
-
-
+    
     private final String postEventURL = "http://31.210.91.130/api/Activity/Create";
     String token;
 
